@@ -13,7 +13,7 @@ jobs:
         dotnet-version: 3.1.101
 
     - name: pack
-      run: dotnet pack --configuration Release
+      run: dotnet pack --configuration Release -o ./bin/publish
 
     - name: publish to github package
-      run: dotnet nuget push bin/Release/*.nupkg --source https://nuget.pkg.github.com/gohopo/index.json -k ${{ secrets.GITHUB_TOKEN }}
+      run: dotnet nuget push bin/publish/*.nupkg --source https://nuget.pkg.github.com/gohopo/index.json -k ${{ secrets.GITHUB_TOKEN }}
