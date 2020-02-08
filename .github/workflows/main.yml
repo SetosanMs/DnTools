@@ -15,5 +15,5 @@ jobs:
     - name: pack
       run: dotnet pack --configuration Release -o ./bin/publish
 
-    - name: publish to github package
-      run: dotnet nuget push bin/publish/*.nupkg --source https://nuget.pkg.github.com/gohopo/index.json -k ${{ secrets.GITHUB_TOKEN }}
+    - name: publish to nuget
+      run: dotnet nuget push bin/publish/*.nupkg --source https://api.nuget.org/v3/index.json -SkipDuplicate -ApiKey ${{ secrets.NugetKey }} -NoSymbols 
