@@ -1,0 +1,19 @@
+name: publish to nuget
+on: [push]
+jobs:
+  build-publish:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@master
+
+    - name: setup dotnet core
+      uses: actions/setup-dotnet@master
+      with:
+        dotnet-version: 3.1.101
+
+    - name: pack
+      run: dotnet pack --configuration Release
+
+    - name: publish to github package
+      run: dotnet nuget push bin/Release/*.nupkg --source github
