@@ -3,6 +3,17 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>Gohopo.DnTools</RootNamespace>
+    <Authors>gohopo</Authors>
+    <Company>gohopo</Company>
+    <Description>dotnet tools</Description>
+    <RepositoryUrl>https://github.com/gohopo/DnTools</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/gohopo/DnTools</PackageProjectUrl>
+    <RepositoryType></RepositoryType>
+    <Version>1.0.1</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
 
 </Project>

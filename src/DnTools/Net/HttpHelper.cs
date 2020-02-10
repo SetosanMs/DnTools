@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
@@ -22,6 +23,11 @@ namespace Gohopo.DnTools.Net
                 return await client.GetStringAsync(url);
             }
         }
+        public static async Task<T> GetAsync<T>(string url, Dictionary<string, string> headers = null)
+        {
+            var result = await GetAsync(url, headers);
+            return JsonConvert.DeserializeObject<T>(result);
+        }
         public static async Task<string> PostAsync(string url, string body, string contentType = null, Dictionary<string, string> headers = null)
         {
             using (HttpClient client = new HttpClient())
@@ -43,6 +49,11 @@ namespace Gohopo.DnTools.Net
                     return await response.Content.ReadAsStringAsync();
                 }
             }
+        }
+        public static async Task<T> PostAsync<T>(string url, string body, string contentType = null, Dictionary<string, string> headers = null)
+        {
+            var result = await PostAsync(url, body, contentType, headers);
+            return JsonConvert.DeserializeObject<T>(result);
         }
     }
 }
