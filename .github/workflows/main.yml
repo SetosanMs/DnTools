@@ -2,7 +2,7 @@ name: publish to nuget
 on:
   push:
     tags:
-      - 'v*'
+      - 'v*.*.*'
 jobs:
   build-publish:
     runs-on: ubuntu-latest
