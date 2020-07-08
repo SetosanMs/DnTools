@@ -1,0 +1,15 @@
+﻿<Project>
+  <PropertyGroup>
+    <PackageId>$(MSBuildProjectName)</PackageId>
+    <Description>dotnet tools</Description>
+    <Authors>gohopo</Authors>
+    <RepositoryUrl>https://github.com/gohopo/DnTools</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/gohopo/DnTools</PackageProjectUrl>
+    <Version>1.0.1</Version>
+    <NeutralLanguage>zh-cn</NeutralLanguage>
+</PropertyGroup>
+<PropertyGroup>
+  <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+</Project>

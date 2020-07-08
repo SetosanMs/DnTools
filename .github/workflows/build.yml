@@ -1,0 +1,22 @@
+name: publish to nuget
+on:
+  push:
+    branches:
+    - build
+jobs:
+  build-publish:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@master
+
+    - name: setup dotnet core
+      uses: actions/setup-dotnet@master
+      with:
+        dotnet-version: 3.1.201
+        
+    - name: pack
+      run: dotnet pack --configuration Release -o ./bin/publish
+
+    - name: publish to nuget
+      run: dotnet nuget push bin/publish/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NugetKey }} --skip-duplicate --no-symbols true
